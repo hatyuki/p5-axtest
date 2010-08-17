@@ -13,7 +13,7 @@ has extension => (
     is      => 'rw',
     isa     => 'Str',
     lazy    => 1,
-    default => '.mt',
+    default => '',
 );
 
 has options => (

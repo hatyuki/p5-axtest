@@ -22,17 +22,14 @@ config 'View::Tiffany::Xslate' => {
 config 'View::Tiffany::MT' => {
     view    => 'Text::MicroTemplate::Extended',
     options => {
-        include_path => [ $home->subdir('root', 'tmpl') ],
-        extension => '',
+        include_path  => [ $home->subdir('root', 'tmpl') ],
         template_args => {
-            c     => sub { __PACKAGE__->context },
-            s     => sub { __PACKAGE__->context->stash },
             stash => sub { __PACKAGE__->context->stash },
         },
         macro => {
             dump => sub {
                 require Data::Dumper;
-                local $Data::Dumper::Terse = 1;
+                local  $Data::Dumper::Terse = 1;
                 Data::Dumper::Dumper(@_);
             },
         },
